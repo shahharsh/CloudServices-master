@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title> CMPE-282 Cloud Services </title>
+	<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.css"/>
+</head>
+
+<body>
+
+<div class="container">
+	<h1><a href="#">CMPE 282 Cloud Services</a></h1>
+	
+	<div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  <ul class="nav">
+                    <li class="span2"><a href="../index.html">CMPE282.com</a></li>
+					<li class="active span6"></li>
+					<li class="span2 active"><a href="SignIn.html">Sign In</a></li>
+                    <li><a href="#">  </a></li> <!--  My Cart  -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+	<img src="/CloudServices/assets/img/cloudServices.jpg" class="span5" href="../index.html"/>
+	
+
+	<form id="login" class="well span6" onsubmit="return false;">
+		<input type="text" id="userName" class="span3" placeholder="Username" value=""/>
+		<input type="password" id="passwd" class="span3" placeholder="Password" value=""/>
+		<button class="btn btn-primary" id="login" onclick="LogInfun()">Login</button>
+		<input type="reset" id="clear" class="btn" value="Clear" />
+		<h6 id="h6" style="color:red"></h6>
+	</form>
+	
+	</div>
+	
+	<script src="../assets/js/bootstrap.js"></script>
+	<script src="../assets/js/signIn.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	
+	
+	<!--  
+	<script type="text/javascript">
+	
+	function LogInfun(){
+		var URL = "http://localhost:8080/CloudServices/rest/users/signin";
+		var username = document.forms["login"]["userName"].value;
+		var passwd = document.forms["login"]["passwd"].value;
+		if((username=="" || username==null) && ( passwd=="" || passwd==null)){
+			document.getElementById("h6").innerHTML="Please enter username and password !";
+		}
+		else if(passwd =="" || passwd == null){
+			document.getElementById("h6").innerHTML="Please Enter Password !";
+		}
+		else if(username=="" || username== null){
+			document.getElementById("h6").innerHTML="Please Enter Username !";
+		}
+		else{		
+		$.ajax({
+				type: "POST",
+				url: URL,
+				contentType: "application/json",
+				dataType: 'json',
+				data : formToJSON(),
+				success: function(data, textStatus, jqXHR){
+					if(data){
+						//alert("you are logged in");
+						window.location="/CloudServices/view/products.html";
+					}
+					else{
+						document.getElementById("h6").innerHTML="Wrong username or password !";
+					}
+					},
+				error: function(textStatus, jqXHR,errorThrown){
+					alert(textStatus+" "+jqXHR);
+				}
+			});
+		}
+	}
+	
+	function formToJSON() {
+	    return JSON.stringify({
+    	"email": $('#userName').val(),
+	    "passwd": $('#passwd').val(),
+    	});
+	}
+		</script>
+		 -->
+	</body>
+</html> 
